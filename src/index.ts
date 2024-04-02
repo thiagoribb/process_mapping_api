@@ -1,10 +1,18 @@
+import cors from "cors";
 import dotenv from "dotenv";
 import express, { Application, Request, Response } from "express";
+import morgan from "morgan";
+import processRouter from "./routes/processRouter";
 
-//For env File 
 dotenv.config();
 
 const app: Application = express();
+app.use(morgan("tiny"));
+app.use(cors());
+app.use(express.json());
+
+app.use("/api/process", processRouter);
+
 const port = process.env.PORT || 8000;
 
 app.get("/", (req: Request, res: Response) => {
@@ -12,6 +20,5 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
   console.log(`Server is Fire at http://localhost:${port}`);
 });
