@@ -8,7 +8,7 @@ class ProcessController {
       const { name } = req.body;
       const newProcess = await processService.create(name);
 
-      res.status(httpStatus.CREATED).send({newProcess});
+      res.status(httpStatus.CREATED).send(newProcess);
     } catch(error) {
       res.status(500).json({ error });
     }
