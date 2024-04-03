@@ -20,7 +20,7 @@
     "express": "^4.19.2",
     "http-status": "^1.7.4",
     "joi": "^17.12.2",
-    "morgan": "^1.10.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
